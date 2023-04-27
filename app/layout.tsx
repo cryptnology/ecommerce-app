@@ -1,3 +1,8 @@
+import { getServerSession } from 'next-auth';
+
+import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { NavBar } from '@/app/components';
+
 import './globals.css';
 
 export const metadata = {
@@ -9,10 +14,17 @@ interface Props {
   children: React.ReactNode;
 }
 
-const RootLayout = ({ children }: Props) => {
+const RootLayout = async ({ children }: Props) => {
+  /* Fetch the user */
+  const session = await getServerSession(authOptions);
+  console.log(session);
+
   return (
     <html lang="en">
-      <body className="">{children}</body>
+      <body className="mx-64">
+        <NavBar user={session?.user} expires={session?.expires as string} />
+        {children}
+      </body>
     </html>
   );
 };
