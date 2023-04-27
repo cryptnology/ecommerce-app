@@ -17,7 +17,6 @@ interface Props {
 const RootLayout = async ({ children }: Props) => {
   /* Fetch the user */
   const session = await getServerSession(authOptions);
-  console.log(session);
 
   return (
     <html lang="en">

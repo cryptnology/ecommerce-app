@@ -17,6 +17,7 @@ const NavBar = ({ user, expires }: Session) => {
               alt={user?.name as string}
               width={48}
               height={48}
+              priority
             />
           </li>
         ) : (
