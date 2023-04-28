@@ -1,1 +1,2 @@
-export type { default as Product } from './Product';
+export type { default as ProductType } from './ProductType';
+export type { default as QueryType } from './QueryType';

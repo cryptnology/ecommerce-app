@@ -1,25 +1,51 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { formatPrice } from '@/utils';
-import { Product } from '@/types';
+import { ProductType } from '@/types';
 
-interface Props extends Product {}
+interface Props extends ProductType {}
 
-const ProductCard = ({ name, image, price }: Props) => {
+const ProductCard = ({
+  id,
+  name,
+  image,
+  unit_amount,
+  description,
+  metadata,
+}: Props) => {
+  const { features } = metadata;
+
   return (
-    <div className="text-gray-700">
-      <Image
-        className="w-full h-auto rounded-lg"
-        src={image}
-        alt={name}
-        width={800}
-        height={800}
-        priority
-      />
-      <div className="font-medium py-2">
-        <h1>{name}</h1>
-        <h2 className="text-sm text-teal-700">{price && formatPrice(price)}</h2>
+    <Link
+      href={{
+        pathname: `/product/${id}`,
+        query: {
+          id,
+          name,
+          image,
+          unit_amount,
+          description,
+          features,
+        },
+      }}
+    >
+      <div className="text-gray-700">
+        <Image
+          className="w-full h-auto rounded-lg"
+          src={image}
+          alt={name}
+          width={600}
+          height={600}
+          priority
+        />
+        <div className="font-medium py-2">
+          <h1>{name}</h1>
+          <h2 className="text-sm text-teal-700">
+            {unit_amount && formatPrice(unit_amount)}
+          </h2>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
