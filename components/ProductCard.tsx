@@ -6,10 +6,19 @@ interface Props extends Product {}
 
 const ProductCard = ({ name, image, price }: Props) => {
   return (
-    <div>
-      <Image src={image} alt={name} width={400} height={400} priority />
-      <h1>{name}</h1>
-      {price ? formatPrice(price) : 'N/A'}
+    <div className="text-gray-700">
+      <Image
+        className="w-full h-auto rounded-lg"
+        src={image}
+        alt={name}
+        width={800}
+        height={800}
+        priority
+      />
+      <div className="font-medium py-2">
+        <h1>{name}</h1>
+        <h2 className="text-sm text-teal-700">{price && formatPrice(price)}</h2>
+      </div>
     </div>
   );
 };
