@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth';
 
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
-import { NavBar } from '@/app/components';
+import { NavBar } from '@/components';
 
 import './globals.css';
 

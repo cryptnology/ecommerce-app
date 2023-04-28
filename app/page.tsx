@@ -1,5 +1,5 @@
 import Stripe from 'stripe';
-import { Product } from './components';
+import { ProductCard } from '@/components';
 
 const getProducts = async () => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
@@ -27,7 +27,7 @@ const Home = async () => {
   return (
     <main>
       {products.map((product) => (
-        <Product key={product.id} {...product} />
+        <ProductCard key={product.id} {...product} />
       ))}
     </main>
   );
