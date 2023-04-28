@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth';
 
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
-import { NavBar } from '@/components';
+import { Hydrate, NavBar } from '@/components';
 
 import './globals.css';
 
@@ -21,8 +21,10 @@ const RootLayout = async ({ children }: Props) => {
   return (
     <html lang="en">
       <body className="mx-64">
-        <NavBar user={session?.user} expires={session?.expires as string} />
-        {children}
+        <Hydrate>
+          <NavBar user={session?.user} expires={session?.expires as string} />
+          {children}
+        </Hydrate>
       </body>
     </html>
   );

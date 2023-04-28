@@ -9,7 +9,7 @@ import useCartStore from '@/store';
 import { Cart } from '@/components';
 
 const NavBar = ({ user, expires }: Session) => {
-  const { isOpen, cart } = useCartStore();
+  const { isOpen, cart, toggleCart } = useCartStore();
 
   return (
     <nav className="flex justify-between items-center py-12">
@@ -17,7 +17,10 @@ const NavBar = ({ user, expires }: Session) => {
         <h1>Styled</h1>
       </Link>
       <ul className="flex items-center gap-12">
-        <li className="flex items-center text-3xl relative cursor-pointer">
+        <li
+          className="flex items-center text-3xl relative cursor-pointer"
+          onClick={toggleCart}
+        >
           <AiFillShopping />
           <span className="bg-teal-700 text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center">
             {cart.length}

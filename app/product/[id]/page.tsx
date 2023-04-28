@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { QueryType } from '@/types';
 import { formatPrice } from '@/utils';
+import AddCart from './AddCart';
 
 const Product = async ({ searchParams }: QueryType) => {
   const { name, image, unit_amount, description, features } = searchParams;
@@ -25,9 +26,7 @@ const Product = async ({ searchParams }: QueryType) => {
             {unit_amount && formatPrice(unit_amount)}
           </p>
         </div>
-        <button className="my-12 text-white py-2 px-6 font-medium rounded-md bg-teal-700">
-          Add to cart
-        </button>
+        <AddCart {...searchParams} />
       </div>
     </div>
   );
