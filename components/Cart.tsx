@@ -27,11 +27,12 @@ const Cart = () => {
     >
       <motion.div
         layout
-        className="bg-white absolute right-0 top-0 w-1/4 h-screen p-12 overflow-y-scroll text-gray-700"
+        className="bg-white absolute right-0 top-0 w-full lg:w-2/5 h-screen p-12 overflow-y-scroll text-gray-700"
         onClick={(e) => e.stopPropagation()}
       >
-        <h1>Here's your shopping list</h1>
-
+        <button className="text-sm font-bold pb-12" onClick={toggleCart}>
+          Back to store
+        </button>
         {cart.map((item) => (
           <motion.div key={item.id} className="flex py-4 gap-4" layout>
             <Image
