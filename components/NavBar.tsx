@@ -5,11 +5,14 @@ import { signIn } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AiFillShopping } from 'react-icons/ai';
+import { AnimatePresence, motion } from 'framer-motion';
 import useCartStore from '@/store';
 import { Cart } from '@/components';
 
 const NavBar = ({ user, expires }: Session) => {
   const { isOpen, cart, toggleCart } = useCartStore();
+
+  const itemCount = cart.length;
 
   return (
     <nav className="flex justify-between items-center py-12">
@@ -22,9 +25,17 @@ const NavBar = ({ user, expires }: Session) => {
           onClick={toggleCart}
         >
           <AiFillShopping />
-          <span className="bg-teal-700 text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center">
-            {cart.length}
-          </span>
+          <AnimatePresence>
+            {itemCount > 0 && (
+              <motion.span
+                className="bg-teal-700 text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+              >
+                {itemCount}
+              </motion.span>
+            )}
+          </AnimatePresence>
         </li>
         {user ? (
           <li>
@@ -43,7 +54,7 @@ const NavBar = ({ user, expires }: Session) => {
           </li>
         )}
       </ul>
-      {isOpen && <Cart />}
+      <AnimatePresence>{isOpen && <Cart />}</AnimatePresence>
     </nav>
   );
 };
