@@ -7,6 +7,8 @@ const useCartStore = create<CartStoreType>()(
     (set) => ({
       cart: [],
       isOpen: false,
+      paymentIntent: '',
+      onCheckout: 'cart',
       toggleCart: () => set((state) => ({ isOpen: !state.isOpen })),
       addProduct: (item) =>
         set((state) => {
@@ -41,6 +43,11 @@ const useCartStore = create<CartStoreType>()(
             return { cart: filteredCart };
           }
         }),
+      setPaymentIntent: (val) =>
+        set((state) => ({
+          paymentIntent: val,
+        })),
+      setOnCheckout: (val) => set(() => ({ onCheckout: val })),
     }),
 
     { name: 'cart-store' },
