@@ -11,7 +11,7 @@ const stripePromise = loadStripe(
 
 const Checkout = () => {
   const [clientSecret, setClientSecret] = useState('');
-  const { cart, paymentIntent } = useCartStore();
+  const { cart, paymentIntent, setPaymentIntent } = useCartStore();
   const router = useRouter();
 
   useEffect(() => {
@@ -30,7 +30,8 @@ const Checkout = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        setClientSecret(data.paymentIntent.client_secret);
+        setPaymentIntent(data.paymentIntent.id);
       });
   }, []);
 
