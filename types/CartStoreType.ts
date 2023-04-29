@@ -5,6 +5,7 @@ type CartStoreType = {
   cart: AddCartType[];
   toggleCart: () => void;
   addProduct: (item: AddCartType) => void;
+  removeProduct: (item: AddCartType) => void;
 };
 
 export default CartStoreType;

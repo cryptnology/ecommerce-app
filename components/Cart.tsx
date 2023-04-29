@@ -1,11 +1,12 @@
 'use client';
 
 import Image from 'next/image';
+import { IoAddCircle, IoRemoveCircle } from 'react-icons/io5';
 import useCartStore from '@/store';
 import { formatPrice } from '@/utils';
 
 const Cart = () => {
-  const { toggleCart, cart } = useCartStore();
+  const { toggleCart, cart, addProduct, removeProduct } = useCartStore();
 
   return (
     <div
@@ -28,7 +29,35 @@ const Cart = () => {
             />
             <div>
               <h2>{item.name}</h2>
-              <h2>Quantity: {item.quantity}</h2>
+              <div className="flex gap-2">
+                <h2>Quantity: {item.quantity}</h2>
+                <button
+                  onClick={() =>
+                    removeProduct({
+                      id: item.id,
+                      name: item.name,
+                      image: item.image,
+                      unit_amount: item.unit_amount,
+                      quantity: item.quantity,
+                    })
+                  }
+                >
+                  <IoRemoveCircle />
+                </button>
+                <button
+                  onClick={() =>
+                    addProduct({
+                      id: item.id,
+                      name: item.name,
+                      image: item.image,
+                      unit_amount: item.unit_amount,
+                      quantity: item.quantity,
+                    })
+                  }
+                >
+                  <IoAddCircle />
+                </button>
+              </div>
               <p>{item.unit_amount && formatPrice(item.unit_amount)}</p>
             </div>
           </div>
