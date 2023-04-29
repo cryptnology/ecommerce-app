@@ -9,6 +9,13 @@ import basket from '@/public/empty-cart.png';
 const Cart = () => {
   const { toggleCart, cart, addProduct, removeProduct } = useCartStore();
 
+  const totalPrice = cart.reduce(
+    (acc, item) => acc + item.unit_amount! * item.quantity,
+    0,
+  );
+
+  const itemsCount = cart.length;
+
   return (
     <div
       className="fixed w-full h-screen left-0 top-0 bg-black/25"
@@ -63,7 +70,8 @@ const Cart = () => {
             </div>
           </div>
         ))}
-        {cart.length > 0 ? (
+        {itemsCount > 0 && <p>Total: {formatPrice(totalPrice)}</p>}
+        {itemsCount > 0 ? (
           <button className="py-2 mt-4 bg-teal-700 w-full rounded-md text-white">
             Checkout
           </button>
