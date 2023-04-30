@@ -34,9 +34,19 @@ const Cart = () => {
         className="bg-white absolute right-0 top-0 w-full lg:w-2/5 h-screen p-12 overflow-y-scroll text-gray-700"
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="text-sm font-bold pb-12" onClick={toggleCart}>
-          Back to store
-        </button>
+        {onCheckout === 'cart' && (
+          <button className="text-sm font-bold pb-12" onClick={toggleCart}>
+            Back to store
+          </button>
+        )}
+        {onCheckout === 'checkout' && (
+          <button
+            className="text-sm font-bold pb-12"
+            onClick={() => setOnCheckout('cart')}
+          >
+            Check your cart
+          </button>
+        )}
         {onCheckout === 'cart' &&
           cart.map((item) => (
             <motion.div key={item.id} className="flex py-4 gap-4" layout>
@@ -82,7 +92,7 @@ const Cart = () => {
               </motion.div>
             </motion.div>
           ))}
-        {itemsCount > 0 ? (
+        {onCheckout === 'cart' && itemsCount > 0 && (
           <motion.div layout>
             <p>Total: {formatPrice(calculateOrderAmount(cart))}</p>
             <button
@@ -92,7 +102,8 @@ const Cart = () => {
               Checkout
             </button>
           </motion.div>
-        ) : (
+        )}
+        {itemsCount === 0 && (
           <AnimatePresence>
             <motion.div
               className="flex flex-col items-center gap-12 text-2xl font-medium pt-56 opacity-75"
