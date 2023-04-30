@@ -6,6 +6,7 @@ type CartStoreType = {
   paymentIntent: string;
   onCheckout: string;
   toggleCart: () => void;
+  clearCart: () => void;
   addProduct: (item: AddCartType) => void;
   removeProduct: (item: AddCartType) => void;
   setPaymentIntent: (val: string) => void;

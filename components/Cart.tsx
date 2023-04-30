@@ -7,7 +7,7 @@ import useCartStore from '@/store';
 import { calculateOrderAmount, formatPrice } from '@/utils';
 import basket from '@/public/empty-cart.png';
 
-import { Checkout } from '@/components';
+import { Checkout, OrderConfirmed } from '@/components';
 
 const Cart = () => {
   const {
@@ -103,7 +103,7 @@ const Cart = () => {
             </button>
           </motion.div>
         )}
-        {itemsCount === 0 && (
+        {itemsCount === 0 && onCheckout === 'cart' && (
           <AnimatePresence>
             <motion.div
               className="flex flex-col items-center gap-12 text-2xl font-medium pt-56 opacity-75"
@@ -118,6 +118,7 @@ const Cart = () => {
         )}
         {/* Checkout form */}
         {onCheckout === 'checkout' && <Checkout />}
+        {onCheckout === 'success' && <OrderConfirmed />}
       </motion.div>
     </motion.div>
   );
