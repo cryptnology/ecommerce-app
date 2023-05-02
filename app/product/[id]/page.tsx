@@ -8,7 +8,7 @@ const Product = async ({ searchParams }: QueryType) => {
   const { name, image, unit_amount, description, features } = searchParams;
 
   return (
-    <div className="flex flex-col lg:flex-row justify-between gap-24 text-gray-700">
+    <div className="flex flex-col lg:flex-row justify-between gap-16">
       <Image
         className="w-full h-auto rounded-lg"
         src={image}

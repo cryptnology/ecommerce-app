@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Elements } from '@stripe/react-stripe-js';
 import { StripeElementsOptions, loadStripe } from '@stripe/stripe-js';
 import { motion } from 'framer-motion';
-import { useCartStore } from '@/store';
+import { useCartStore, useThemeStore } from '@/store';
 import { CheckoutForm, OrderAnimation } from '@/components';
 
 const stripePromise = loadStripe(
@@ -16,6 +16,7 @@ const Checkout = () => {
   const [clientSecret, setClientSecret] = useState('');
   const { cart, paymentIntent, setPaymentIntent } = useCartStore();
   const router = useRouter();
+  const { mode } = useThemeStore();
 
   useEffect(() => {
     fetch('/api/create-payment-intent', {
@@ -41,7 +42,7 @@ const Checkout = () => {
   const options: StripeElementsOptions = {
     clientSecret,
     appearance: {
-      theme: 'stripe',
+      theme: mode === 'light' ? 'stripe' : 'night',
       labels: 'floating',
     },
   };

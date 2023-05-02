@@ -31,7 +31,7 @@ const Cart = () => {
     >
       <motion.div
         layout
-        className="bg-white absolute right-0 top-0 w-full lg:w-2/5 h-screen p-12 overflow-y-scroll"
+        className="bg-base-200 absolute right-0 top-0 w-full lg:w-2/5 h-screen p-12 overflow-y-scroll"
         onClick={(e) => e.stopPropagation()}
       >
         {onCheckout === 'cart' && (
@@ -49,7 +49,11 @@ const Cart = () => {
         )}
         {onCheckout === 'cart' &&
           cart.map((item) => (
-            <motion.div key={item.id} className="flex py-4 gap-4" layout>
+            <motion.div
+              key={item.id}
+              className="flex p-4 gap-4 bg-base-100 my-4 rounded-lg"
+              layout
+            >
               <Image
                 className="rounded-md h-24"
                 src={item.image}
