@@ -28,7 +28,7 @@ const NavBar = ({ user, expires }: Session) => {
           <AnimatePresence>
             {itemCount > 0 && (
               <motion.span
-                className="bg-teal-700 text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center"
+                className="bg-primary text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
               >
@@ -49,7 +49,7 @@ const NavBar = ({ user, expires }: Session) => {
             />
           </Link>
         ) : (
-          <li className="bg-teal-600 text-white py-2 px-4 rounded-md">
+          <li className="bg-primary text-white py-2 px-4 rounded-md">
             <button onClick={() => signIn()}>Sign in</button>
           </li>
         )}

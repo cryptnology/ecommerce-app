@@ -22,7 +22,7 @@ const RootLayout = async ({ children }: Props) => {
   const session = await getServerSession(authOptions);
 
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light">
       <body className={`mx-4 lg:mx-48 ${roboto.className}`}>
         <Hydrate>
           <NavBar user={session?.user} expires={session?.expires as string} />

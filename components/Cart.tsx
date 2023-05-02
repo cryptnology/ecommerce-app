@@ -31,7 +31,7 @@ const Cart = () => {
     >
       <motion.div
         layout
-        className="bg-white absolute right-0 top-0 w-full lg:w-2/5 h-screen p-12 overflow-y-scroll text-gray-700"
+        className="bg-white absolute right-0 top-0 w-full lg:w-2/5 h-screen p-12 overflow-y-scroll"
         onClick={(e) => e.stopPropagation()}
       >
         {onCheckout === 'cart' && (
@@ -96,7 +96,7 @@ const Cart = () => {
           <motion.div layout>
             <p>Total: {formatPrice(calculateOrderAmount(cart))}</p>
             <button
-              className="py-2 mt-4 bg-teal-700 w-full rounded-md text-white"
+              className="py-2 mt-4 btn btn-primary w-full"
               onClick={() => setOnCheckout('checkout')}
             >
               Checkout

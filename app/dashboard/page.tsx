@@ -32,7 +32,10 @@ const Dashboard = async () => {
       </h1>
       <div className="font-medium">
         {orders?.map((order) => (
-          <div key={order.id} className="rounded-lg p-8 my-4 space-y-2">
+          <div
+            key={order.id}
+            className="rounded-lg p-8 my-4 space-y-2 bg-base-200"
+          >
             <h2 className="text-xs font-medium">Order reference: {order.id}</h2>
             <p className="text-xs">
               Status:{' '}
