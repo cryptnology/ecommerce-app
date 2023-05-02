@@ -12,7 +12,7 @@ const fetchOrders = async () => {
   if (!user) return null;
 
   return await prisma.order.findMany({
-    where: { userId: user?.user?.id },
+    where: { userId: user?.user?.id, status: 'complete' },
     include: {
       products: true,
     },
@@ -32,21 +32,22 @@ const Dashboard = async () => {
       </h1>
       <div className="font-medium">
         {orders?.map((order) => (
-          <div key={order.id} className="rounded-lg p-8 my-12">
-            <h2>Order reference: {order.id}</h2>
-            <p>Time: {new Date(order.createdDate).toString()}</p>
-            <p className="text-md py-2">
+          <div key={order.id} className="rounded-lg p-8 my-4 space-y-2">
+            <h2 className="text-xs font-medium">Order reference: {order.id}</h2>
+            <p className="text-xs">
               Status:{' '}
               <span
                 className={`${
                   order.status === 'complete' ? 'bg-teal-500' : 'bg-orange-500'
-                } capitalize text-white py-1 rounded-md px-2 mx-2 text-sm`}
+                } capitalize text-white py-1 rounded-md px-2 mx-2 text-xs`}
               >
                 {order.status}
               </span>
             </p>
-            <p className="font-medium">Total: {formatPrice(order.amount)}</p>
-            <div className="flex gap-8">
+            <p className="text-xs">
+              Time: {new Date(order.createdDate).toString()}
+            </p>
+            <div className="text-sm lg:flex items-center gap-4">
               {order.products.map((product) => (
                 <div key={product.id} className="py-2">
                   <h2 className="py-2">{product.name}</h2>
@@ -63,6 +64,7 @@ const Dashboard = async () => {
                 </div>
               ))}
             </div>
+            <p className="font-xs">Total: {formatPrice(order.amount)}</p>
           </div>
         ))}
       </div>

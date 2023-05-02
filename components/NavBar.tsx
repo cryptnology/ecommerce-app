@@ -38,7 +38,7 @@ const NavBar = ({ user, expires }: Session) => {
           </AnimatePresence>
         </li>
         {user ? (
-          <li>
+          <Link href="/dashboard">
             <Image
               className="rounded-full"
               src={user?.image as string}
@@ -47,7 +47,7 @@ const NavBar = ({ user, expires }: Session) => {
               height={36}
               priority
             />
-          </li>
+          </Link>
         ) : (
           <li className="bg-teal-600 text-white py-2 px-4 rounded-md">
             <button onClick={() => signIn()}>Sign in</button>
