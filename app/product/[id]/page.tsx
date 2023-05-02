@@ -24,7 +24,7 @@ const Product = async ({ searchParams }: QueryType) => {
         <p className="py-2">{description}</p>
         <p className="py-2">{features}</p>
         <div className="flex gap-2">
-          <p className="font-bold text-primary">
+          <p className="font-bold text-accent-focus">
             {unit_amount && formatPrice(unit_amount)}
           </p>
         </div>

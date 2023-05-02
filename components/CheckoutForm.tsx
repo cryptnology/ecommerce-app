@@ -47,7 +47,7 @@ const CheckoutForm = ({ clientSecret }: Props) => {
         Total: {formatPrice(calculateOrderAmount(cart))}
       </h1>
       <button
-        className="py-2 mt-4 w-full btn btn-primary"
+        className="py-2 mt-4 w-full btn btn-accent"
         id="submit"
         disabled={isLoading || !stripe || !elements}
       >

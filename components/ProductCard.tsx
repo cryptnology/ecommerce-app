@@ -43,7 +43,7 @@ const ProductCard = ({
             <h1 className="line-clamp-2">{name}</h1>
           </div>
           <div>
-            <h2 className="text-sm text-primary mt-8">
+            <h2 className="text-sm text-accent-focus mt-8">
               {unit_amount && formatPrice(unit_amount)}
             </h2>
           </div>

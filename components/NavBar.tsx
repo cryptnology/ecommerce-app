@@ -33,7 +33,7 @@ const NavBar = ({ user, expires }: Session) => {
           <AnimatePresence>
             {itemCount > 0 && (
               <motion.span
-                className="bg-primary text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center"
+                className="bg-accent-focus text-white text-sm font-bold w-5 h-5 rounded-full absolute left-4 bottom-4 flex items-center justify-center"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
               >

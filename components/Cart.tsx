@@ -100,7 +100,7 @@ const Cart = () => {
           <motion.div layout>
             <p>Total: {formatPrice(calculateOrderAmount(cart))}</p>
             <button
-              className="py-2 mt-4 btn btn-primary w-full"
+              className="py-2 mt-4 btn btn-accent w-full"
               onClick={() => setOnCheckout('checkout')}
             >
               Checkout
