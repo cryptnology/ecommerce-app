@@ -29,7 +29,7 @@ const ProductCard = ({
         },
       }}
     >
-      <div>
+      <div className="bg-base-200 p-4 rounded-lg">
         <Image
           className="w-full h-auto rounded-lg"
           src={image}
@@ -38,11 +38,15 @@ const ProductCard = ({
           height={600}
           priority
         />
-        <div className="font-medium py-2">
-          <h1>{name}</h1>
-          <h2 className="text-sm text-primary">
-            {unit_amount && formatPrice(unit_amount)}
-          </h2>
+        <div className="font-medium pt-2">
+          <div className="h-6">
+            <h1 className="line-clamp-2">{name}</h1>
+          </div>
+          <div>
+            <h2 className="text-sm text-primary mt-8">
+              {unit_amount && formatPrice(unit_amount)}
+            </h2>
+          </div>
         </div>
       </div>
     </Link>

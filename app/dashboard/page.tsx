@@ -50,7 +50,7 @@ const Dashboard = async () => {
             <p className="text-xs">
               Time: {new Date(order.createdDate).toString()}
             </p>
-            <div className="text-sm lg:flex items-center gap-4">
+            <div className="text-sm lg:flex items-center gap-8">
               {order.products.map((product) => (
                 <div key={product.id} className="py-2">
                   <h2 className="py-2">{product.name}</h2>

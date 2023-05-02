@@ -57,7 +57,7 @@ const NavBar = ({ user, expires }: Session) => {
                 tabIndex={0}
               />
               <ul
-                className="dropdown-content menu p-4 space-y-4 shadow bg-base-100 rounded-box min-w-max"
+                className="dropdown-content menu p-4 space-y-4 shadow bg-base-100 rounded-box min-w-max border border-base-300 mt-4"
                 tabIndex={0}
               >
                 <Link
