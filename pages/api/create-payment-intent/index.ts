@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
 import Stripe from 'stripe';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/utils/prisma';
 
 import { authOptions } from '../auth/[...nextauth]';
 import { calculateOrderAmount } from '@/utils';
@@ -9,8 +9,6 @@ import { calculateOrderAmount } from '@/utils';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: '2022-11-15',
 });
-
-const prisma = new PrismaClient();
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const userSession = await getServerSession(req, res, authOptions);
