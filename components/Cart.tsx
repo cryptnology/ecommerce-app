@@ -55,7 +55,7 @@ const Cart = () => {
               layout
             >
               <Image
-                className="rounded-md h-24"
+                className="rounded-md h-auto"
                 src={item.image}
                 alt={item.name}
                 width={120}
