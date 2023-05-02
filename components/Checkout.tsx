@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Elements } from '@stripe/react-stripe-js';
 import { StripeElementsOptions, loadStripe } from '@stripe/stripe-js';
+import { motion } from 'framer-motion';
 import useCartStore from '@/store';
-import CheckoutForm from './CheckoutForm';
+import { CheckoutForm, OrderAnimation } from '@/components';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!,
@@ -46,15 +47,16 @@ const Checkout = () => {
   };
 
   return (
-    <div>
+    <>
+      {!clientSecret && <OrderAnimation />}
       {clientSecret && (
-        <div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <Elements options={options} stripe={stripePromise}>
             <CheckoutForm clientSecret={clientSecret} />
           </Elements>
-        </div>
+        </motion.div>
       )}
-    </div>
+    </>
   );
 };
 
