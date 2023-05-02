@@ -50,7 +50,6 @@ const useCartStore = create<CartStoreType>()(
       setOnCheckout: (val) => set(() => ({ onCheckout: val })),
       clearCart: () => set((state) => ({ cart: [] })),
     }),
-
     { name: 'cart-store' },
   ),
 );

@@ -1,6 +1,7 @@
 export { default as Cart } from './Cart';
 export { default as Checkout } from './Checkout';
 export { default as CheckoutForm } from './CheckoutForm';
+export { default as DarkLight } from './DarkLight';
 export { default as Hydrate } from './Hydrate';
 export { default as NavBar } from './NavBar';
 export { default as OrderAnimation } from './OrderAnimation';

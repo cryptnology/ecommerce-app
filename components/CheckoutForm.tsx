@@ -6,7 +6,7 @@ import {
   useElements,
   useStripe,
 } from '@stripe/react-stripe-js';
-import useCartStore from '@/store';
+import { useCartStore } from '@/store';
 import { calculateOrderAmount, formatPrice } from '@/utils';
 
 interface Props {

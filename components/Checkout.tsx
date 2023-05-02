@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Elements } from '@stripe/react-stripe-js';
 import { StripeElementsOptions, loadStripe } from '@stripe/stripe-js';
 import { motion } from 'framer-motion';
-import useCartStore from '@/store';
+import { useCartStore } from '@/store';
 import { CheckoutForm, OrderAnimation } from '@/components';
 
 const stripePromise = loadStripe(

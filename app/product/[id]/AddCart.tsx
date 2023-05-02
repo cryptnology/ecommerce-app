@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import useCartStore from '@/store';
+import { useCartStore } from '@/store';
 import { AddCartType } from '@/types';
 
 const AddCart = ({ id, name, image, quantity, unit_amount }: AddCartType) => {

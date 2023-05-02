@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { IoAddCircle, IoRemoveCircle } from 'react-icons/io5';
 import { AnimatePresence, motion } from 'framer-motion';
-import useCartStore from '@/store';
+import { useCartStore } from '@/store';
 import { calculateOrderAmount, formatPrice } from '@/utils';
 import basket from '@/public/empty-cart.png';
 

@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-import useCartStore from '@/store';
+import { useCartStore } from '@/store';
 import dance from '@/public/dance.webp';
 
 const OrderConfirmed = () => {
