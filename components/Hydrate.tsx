@@ -18,7 +18,7 @@ const Hydrate = ({ children }: Props) => {
   return (
     <>
       {isHydrated ? (
-        <body className="px-4 lg:px-48" data-theme={mode}>
+        <body className="px-4 lg:px-48 font-roboto" data-theme={mode}>
           {children}
         </body>
       ) : (

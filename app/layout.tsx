@@ -6,7 +6,16 @@ import { Hydrate, NavBar } from '@/components';
 
 import './globals.css';
 
-const roboto = Roboto({ weight: ['400', '500', '700'], subsets: ['latin'] });
+const roboto = Roboto({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  variable: '--font-roboto',
+});
+const lobster = Lobster_Two({
+  weight: ['700'],
+  subsets: ['latin'],
+  variable: '--font-lobster',
+});
 
 export const metadata = {
   title: 'Create Next App',
@@ -22,7 +31,7 @@ const RootLayout = async ({ children }: Props) => {
   const session = await getServerSession(authOptions);
 
   return (
-    <html className={`${roboto.className}`} lang="en">
+    <html className={`${roboto.variable} ${lobster.variable}`} lang="en">
       <Hydrate>
         <NavBar user={session?.user} expires={session?.expires as string} />
         {children}
