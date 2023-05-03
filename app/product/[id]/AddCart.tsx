@@ -24,6 +24,7 @@ const AddCart = ({ id, name, image, quantity, unit_amount }: AddCartType) => {
     <button
       className="my-4 btn btn-accent w-full"
       onClick={handleAddToCart}
+      onTouchStart={handleAddToCart}
       disabled={added}
     >
       {added ? 'Adding to cart...' : 'Add to cart'}
