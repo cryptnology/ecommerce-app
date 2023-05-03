@@ -81,7 +81,7 @@ const NavBar = ({ user, expires }: Session) => {
           </li>
         ) : (
           <li>
-            <button className="btn btn-primary" onClick={() => signIn()}>
+            <button className="btn btn-accent" onClick={() => signIn()}>
               Sign in
             </button>
           </li>
