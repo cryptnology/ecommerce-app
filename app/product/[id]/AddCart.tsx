@@ -6,7 +6,7 @@ import { AddCartType } from '@/types';
 
 const AddCart = ({ id, name, image, quantity, unit_amount }: AddCartType) => {
   const [added, setAdded] = useState(false);
-  const { addProduct, cart } = useCartStore();
+  const { addProduct } = useCartStore();
 
   const handleAddToCart = () => {
     addProduct({
