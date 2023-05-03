@@ -4,7 +4,7 @@ import { QueryType } from '@/types';
 import { formatPrice } from '@/utils';
 import AddCart from './AddCart';
 
-export const revalidate = 1;
+export const revalidate = 0;
 
 const Product = async ({ searchParams }: QueryType) => {
   const { name, image, unit_amount, description, features } = searchParams;
