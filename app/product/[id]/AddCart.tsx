@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCartStore } from '@/store';
 import { AddCartType } from '@/types';
 
 const AddCart = ({ id, name, image, quantity, unit_amount }: AddCartType) => {
   const [added, setAdded] = useState(false);
-  const { addProduct } = useCartStore();
+  const { addProduct, cart } = useCartStore();
 
   const handleAddToCart = () => {
     addProduct({
@@ -19,6 +19,8 @@ const AddCart = ({ id, name, image, quantity, unit_amount }: AddCartType) => {
     setAdded(true);
     setTimeout(() => setAdded(false), 500);
   };
+
+  useEffect(() => {}, [cart]);
 
   return (
     <div onClick={handleAddToCart}>
