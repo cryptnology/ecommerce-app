@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useCartStore } from '@/store';
 import { AddCartType } from '@/types';
 
@@ -20,14 +20,14 @@ const AddCart = ({ id, name, image, quantity, unit_amount }: AddCartType) => {
     setTimeout(() => setAdded(false), 500);
   };
 
-  useEffect(() => {}, [cart]);
-
   return (
-    <div onClick={handleAddToCart}>
-      <button className="my-4 btn btn-accent w-full" disabled={added}>
-        {added ? 'Adding to cart...' : 'Add to cart'}
-      </button>
-    </div>
+    <button
+      className="my-4 btn btn-accent w-full cursor-pointer"
+      onClick={handleAddToCart}
+      disabled={added}
+    >
+      {added ? 'Adding to cart...' : 'Add to cart'}
+    </button>
   );
 };
 
