@@ -45,7 +45,7 @@ const NavBar = ({ user, expires }: Session) => {
         {/* Dark and light mode */}
         <DarkLight />
         {user ? (
-          <li>
+          <li className="flex items-center">
             <div className="dropdown dropdown-end cursor-pointer">
               <Image
                 className="rounded-full"
